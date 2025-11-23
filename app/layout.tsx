@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { ToastProvider } from "@/components/ui/toaster";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -45,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="sk" className="scroll-smooth dark">
       <body className={`${inter.variable} ${playfair.variable} ${cormorant.variable} font-sans antialiased`}>
-        {children}
+        <ToastProvider>
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );
